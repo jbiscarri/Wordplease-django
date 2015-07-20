@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Listado de blogs {% endblock %}
+
+{% block section %}
+    <h1>Listado de blogs</h1>
+    {% if user_list|length > 0 %}
+        {% for user in user_list %}
+            <a href="{% url 'blog_detail' user.username %}">
+                {{ user.username }}
+            </a>
+        {% endfor %}
+    {% else %}
+        <p>No hay blogs</p>
+    {% endif %}
+{% endblock %}

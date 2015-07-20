@@ -15,9 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from users.views import LoginView
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'posts.views.home')
+    url(r'^$', 'posts.views.listAll', name='blogs_all'),
+    url(r'^blogs/$', 'posts.views.list', name='blogs_list'),
+    url(r'^blogs/(?P<username>[a-zA-Z]+)$', 'posts.views.blog', name='blog_detail'),
+    url(r'^blogs/(?P<username>[a-zA-Z]+)/(?P<pk>[0-9]+)', 'posts.views.post', name='post_detail'),
+    url(r'^new-post/$', 'posts.views.create', name='new_post'),
+
+    # User URLS
+    url(r'^login$', LoginView.as_view(), name='users_login'),
+    url(r'^logout$', 'users.views.logout', name='users_logout'),
+
 
 ]

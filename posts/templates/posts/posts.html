@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} Listado de posts de {{ username }} {% endblock %}
+
+{% block section %}
+    {% if username != None %}
+        <h1>Listado de posts de {{ username }}</h1>
+    {% else %}
+        <h1>Últimos posts</h1>
+    {% endif %}
+    {% if post_list|length > 0 %}
+        {% for post in post_list %}
+            <a href="{% url 'post_detail' post.owner.username post.pk %}">
+                <h2>{{ post.title }}</h2>
+            </a>
+            <p>{{ post.slug }}</p>
+
+        {% endfor %}
+    {% else %}
+        <p>No hay posts</p>
+    {% endif %}
+{% endblock %}
