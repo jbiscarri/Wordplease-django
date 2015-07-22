@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
-{% block title %} Listado de posts de {{ username }} {% endblock %}
+{% block title %}
+    {% if username != None %}
+        Listado de posts de {{ username }}
+    {% else %}
+        Últimos posts
+    {% endif %}
+{% endblock %}
 
 {% block section %}
     {% if username != None %}

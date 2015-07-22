@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'posts',
     'wordplease',
     'tags',
-    'users'
+    'users',
+    'rest_framework'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -126,4 +127,5 @@ LOGGING = {
 
 # LOGIN URL
 LOGIN_URL = '/login'    # cuando un user no este autenticado, redirige a /login
+
 

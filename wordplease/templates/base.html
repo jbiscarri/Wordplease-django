@@ -15,7 +15,7 @@
         {% if user.is_authenticated %}
             Hola {{ user.username|capfirst }},  <a href="{% url 'new_post' %}">Nuevo post</a> | <a href="{% url 'users_logout' %}">Logout</a>
         {% else %}
-            <a href="{% url 'users_login' %}">Login</a>
+            <a href="{% url 'users_login' %}">Login</a> | <a href="{% url 'users_signup' %}">Registrarse</a>
         {% endif %}
     </nav>
     <hr>

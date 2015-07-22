@@ -3,6 +3,14 @@
 
 {% block section %}
     <h1>{{ post.title }}</h1>
+    <p>Publicado por <b>{{ post.owner.username }}</b> ({{ post.publish_date }})</p>
     <p>{{ post.body }}</p>
-    <p>{{ post.url }}</p>
+    {% if post.url %}
+    <p><img src="{{ post.url }}" /></p>
+    {% endif %}
+    <ul>
+        {% for tag in post.tags.all %}
+            <li>{{ tag.title }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
