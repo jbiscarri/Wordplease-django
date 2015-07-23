@@ -2,15 +2,18 @@
 {% block title %} {{ post.title }} {% endblock %}
 
 {% block section %}
-    <h1>{{ post.title }}</h1>
-    <p>Publicado por <b>{{ post.owner.username }}</b> ({{ post.publish_date }})</p>
-    <p>{{ post.body }}</p>
-    {% if post.url %}
-    <p><img src="{{ post.url }}" /></p>
-    {% endif %}
-    <ul>
-        {% for tag in post.tags.all %}
-            <li>{{ tag.title }}</li>
-        {% endfor %}
-    </ul>
+    <div class="jumbotron" >
+            <h1>{{ post.title }}</h1>
+
+        <p>Publicado por <b>{{ post.owner.username }}</b> ({{ post.publish_date }})</p>
+        <p>{{ post.body }}</p>
+        {% if post.url %}
+        <p><img src="{{ post.url }}" class="img-rounded"/></p>
+        {% endif %}
+        <ul>
+            {% for tag in post.tags.all %}
+                <li>{{ tag.title }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

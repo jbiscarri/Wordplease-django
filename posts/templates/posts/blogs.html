@@ -2,12 +2,17 @@
 {% block title %} Listado de blogs {% endblock %}
 
 {% block section %}
-    <h1>Listado de blogs</h1>
+
+    <div class="row" style="margin:50px 0 0 0;">
+        <h1>Listado de blogs</h1>
+    </div>
     {% if user_list|length > 0 %}
         {% for user in user_list %}
-            <a href="{% url 'blog_detail' user.username %}">
-                {{ user.username }}
-            </a>
+            <div class="jumbotron">
+                <a href="{% url 'blog_detail' user.username %}">
+                    {{ user.username }}
+                </a>
+            </div>
         {% endfor %}
     {% else %}
         <p>No hay blogs</p>

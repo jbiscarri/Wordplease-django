@@ -8,17 +8,25 @@
 {% endblock %}
 
 {% block section %}
+    <div class="row" style="margin:50px 0 0 0;">
     {% if username != None %}
         <h1>Listado de posts de {{ username }}</h1>
     {% else %}
         <h1>Últimos posts</h1>
     {% endif %}
+    </div>
+
     {% if post_list|length > 0 %}
         {% for post in post_list %}
-            <a href="{% url 'post_detail' post.owner.username post.pk %}">
-                <h2>{{ post.title }}</h2>
-            </a>
-            <p>{{ post.slug }}</p>
+            <div class="jumbotron">
+                <a href="{% url 'post_detail' post.owner.username post.pk %}">
+                    <h2>{{ post.title }}</h2>
+                </a>
+                <div>Publicado por <b>{{ post.owner.username }}</b> ({{ post.publish_date }})</div>
+                <blockquote>
+                    <p class="highlight">{{ post.slug }}</p>
+                </blockquote>
+            </div>
 
         {% endfor %}
     {% else %}

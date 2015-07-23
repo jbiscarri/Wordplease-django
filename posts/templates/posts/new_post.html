@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block title %} Nuevo post{% endblock %}
 {% block section %}
-    <h1>Nuevo Post</h1>
+    <div class="row" style="margin:50px 0 0 0;">
+        <h1>Nuevo Post</h1>
+    </div>
     <form method="post" novalidate>
         {% csrf_token %}
         {{ form.as_p }}
