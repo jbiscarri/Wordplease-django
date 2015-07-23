@@ -1,3 +1,13 @@
+**Test users:**
+
+*joan/123456*
+
+*batman/123456*
+
+*spiderman/123456*
+
+---
+
 
 **Formularios**
 

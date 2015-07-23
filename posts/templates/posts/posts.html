@@ -24,10 +24,9 @@
                 </a>
                 <div>Publicado por <b>{{ post.owner.username }}</b> ({{ post.publish_date }})</div>
                 <blockquote>
-                    <p class="highlight">{{ post.slug }}</p>
+                    <p class="highlight"><p><img style="width:80px; margin:0 20px 20px 0; float:left;" src="{{ post.url }}" class="img-rounded"/></p> {{ post.slug }}</p>
                 </blockquote>
             </div>
-
         {% endfor %}
     {% else %}
         <p>No hay posts</p>
