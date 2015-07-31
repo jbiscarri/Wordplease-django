@@ -64,7 +64,8 @@ class SignupView(View):
             email = form.cleaned_data.get('email')
 
             if username and password and name and surnames and email:
-                user = User.objects.create_user(username, email=email, password=password, first_name=name, last_name=surnames )
+                User.objects.create_user(username, email=email, password=password, first_name=name, last_name=surnames )
+                user = authenticate(username=username, password=password)
                 if user is None:
                     error_messages.append('Usuario ya existente')
                 else:
